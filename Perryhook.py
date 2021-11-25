@@ -20,7 +20,7 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Fail{colorama.Back.RESET}")
                 timeout = int(str(data.json()['retry_after'])[2:])
                 print(colorama.Back.YELLOW, '~', f'Ratelimited sleep {timeout}s')
-                time.sleep(timeout)
+                time.sleep(float(timeout))
         except:
             print()
         time.sleep(float(delay))
