@@ -45,7 +45,7 @@ def initialize():
      """)
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
-    elif len(username) > 80:
+    if len(username) > 80:
         print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 80 characters allowed in the username!{colorama.Back.RESET}")
         exit()
     avatar = input("Enter a avatar url > ")
