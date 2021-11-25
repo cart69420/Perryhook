@@ -45,17 +45,17 @@ def initialize():
      """)
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
-    avatar = input("Enter a avatar url > ")
-    message = input("Enter a message > ")
-    delay = input("Enter a delay [int/float] > ")
-    amount = input("Enter an amount [int/inf] > ")
-    hookDeleter = input("Delete webhook after spam? [Y/N] > ")
-    if len(message) > 2000:
-        print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 2000 characters allowed in the message!{colorama.Back.RESET}")
-        exit()
     elif len(username) > 80:
         print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 80 characters allowed in the username!{colorama.Back.RESET}")
         exit()
+    avatar = input("Enter a avatar url > ")
+    message = input("Enter a message > ")
+    if len(message) > 2000:
+        print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 2000 characters allowed in the message!{colorama.Back.RESET}")
+        exit()
+    delay = input("Enter a delay [int/float] > ")
+    amount = input("Enter an amount [int/inf] > ")
+    hookDeleter = input("Delete webhook after spam? [Y/N] > ")
     try:
         delay = float(delay)
     except ValueError:
