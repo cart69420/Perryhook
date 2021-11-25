@@ -21,8 +21,8 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
                 print(f"{colorama.Back.MAGENTA} {colorama.Fore.WHITE}[+] Sent{colorama.Back.RESET}")
             elif data.status_code == 429:
                 timeout = int(str(data.json()['retry_after']))
-                print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Possible Ratelimiting waiting {timeout / 1000}s{colorama.Back.RESET}")
-                time.sleep(timeout / 1000)
+                print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Possible Ratelimiting waiting {timeout / 2000}s{colorama.Back.RESET}")
+                time.sleep(timeout / 2000)
         except:
             print()
         time.sleep(float(delay))
