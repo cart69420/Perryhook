@@ -21,7 +21,8 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
                 print(f"{colorama.Back.MAGENTA} {colorama.Fore.WHITE}[+] Sent{colorama.Back.RESET}")
             elif data.status_code == 429:
                 timeout = int(str(data.json()['retry_after']))
-                print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Ratelimited Waiting {timeout / 1000}s{colorama.Back.RESET}")
+                print(
+                    f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Ratelimited Waiting {timeout / 1000}s{colorama.Back.RESET}")
                 time.sleep(timeout / 1000)
             if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
@@ -49,12 +50,14 @@ def initialize():
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
     if len(username) > 80:
-        print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 80 characters allowed in the username!{colorama.Back.RESET}")
+        print(
+            f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 80 characters allowed in the username!{colorama.Back.RESET}")
         exit()
     avatar = input("Enter a avatar url > ")
     message = input("Enter a message > ")
     if len(message) > 2000:
-        print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 2000 characters allowed in the message!{colorama.Back.RESET}")
+        print(
+            f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 2000 characters allowed in the message!{colorama.Back.RESET}")
         exit()
     delay = input("Enter a delay [int/float] > ")
     amount = input("Enter an amount [int/inf] > ")
