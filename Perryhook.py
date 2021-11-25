@@ -4,8 +4,8 @@ import requests
 import time
 
 
-def check_hook(hook):
-    info = requests.get(hook).text
+def check_hook(webhook):
+    info = requests.get(webhook).text
     if "\"message\": \"Unknown Webhook\"" in info:
         return False
     return True
@@ -23,8 +23,7 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
                 timeout = int(str(data.json()['retry_after']))
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Ratelimited Waiting {timeout / 1000}s{colorama.Back.RESET}")
                 time.sleep(timeout / 1000)
-            info = requests.get(hook).text
-            if "\"message\": \"Unknown Webhook\"" in info:
+            if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
                 exit()
         except:
