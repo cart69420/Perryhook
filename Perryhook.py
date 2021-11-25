@@ -1,7 +1,8 @@
-import colorama
 import os
-import requests
 import time
+
+import colorama
+import requests
 
 
 def check_hook(webhook):
@@ -11,7 +12,7 @@ def check_hook(webhook):
     return True
 
 
-def main(webhook, username, avatar, delay, amount, message, hookDeleter):
+def main(webhook, username, avatar, delay, amount, message, deleter):
     counter = 0
     while True if amount == "inf" else counter < int(amount):
         try:
@@ -31,7 +32,7 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
             print()
         time.sleep(float(delay))
         counter += 1
-    if hookDeleter.lower() == "y":
+    if deleter.lower() == "y":
         requests.delete(webhook)
         print(f'{colorama.Fore.MAGENTA}Webhook deleted.')
     print(f'{colorama.Fore.GREEN}Done...')
@@ -61,16 +62,16 @@ def initialize():
         exit()
     delay = input("Enter a delay [int/float] > ")
     amount = input("Enter an amount [int/inf] > ")
-    hookDeleter = input("Delete webhook after spam? [Y/N] > ")
+    deleter = input("Delete webhook after spam? [Y/N] > ")
     try:
         delay = float(delay)
     except ValueError:
         exit()
     if not check_hook(webhook) or (not amount.isdigit() and amount != "inf") or (
-            hookDeleter.lower() != "y" and hookDeleter.lower() != "n"):
+            deleter.lower() != "y" and deleter.lower() != "n"):
         exit()
     else:
-        main(webhook, username, avatar, delay, amount, message, hookDeleter)
+        main(webhook, username, avatar, delay, amount, message, deleter)
         exit()
 
 
