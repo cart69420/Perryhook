@@ -55,10 +55,10 @@ def initialize():
     amount = input("Enter an amount [int/inf] > ")
     hookDeleter = input("Delete webhook after spam? [Y/N] > ")
     if len(message) > 2000:
-        print "Error! Only 2000 characters allowed in the message!"
+        print ("Error! Only 2000 characters allowed in the message!")
         _exit()
     elif len(username) > 80:
-        print "Error! Only 80 characters allowed in the username!"
+        print ("Error! Only 80 characters allowed in the username!")
         _exit()
     try:
         delay = float(delay)
