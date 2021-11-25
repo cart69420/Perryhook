@@ -16,8 +16,11 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
             data = requests.post(webhook, json={"content": str(message), "username": str(username), "avatar_url": str(avatar)})
             if data.status_code == 204:
                 print(f"{colorama.Back.MAGENTA} {colorama.Fore.WHITE}[+] Sent{colorama.Back.RESET}")
-            else:
+            elif data.status_code == 429:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Fail{colorama.Back.RESET}")
+                timeout = int(str(data.json()['retry_after'])[2:])
+                print(colorama.Back.YELLOW, '~', f'Ratelimited sleep {timeout}s')
+                time.sleep(timeout)
         except:
             print()
         time.sleep(float(delay))
