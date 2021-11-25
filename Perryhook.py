@@ -14,6 +14,7 @@ def check_hook(webhook):
 def main(webhook, username, avatar, delay, amount, message, hookDeleter):
     counter = 0
     while True if amount == "inf" else counter < int(amount):
+        try:
             data = requests.post(webhook,
                                  json={"content": str(message), "username": str(username), "avatar_url": str(avatar)})
             if data.status_code == 204:
@@ -25,6 +26,8 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
             if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
                 exit()
+        except:
+            print()
         time.sleep(float(delay))
         counter += 1
     if hookDeleter.lower() == "y":
