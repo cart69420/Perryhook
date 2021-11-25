@@ -4,9 +4,9 @@ A Python made Discord webhook spammer usually used for token loggers to spam the
 
   <details> <br>
   <summary>Changelog:</summary> <br>
-  Avatar is now changable instead of being hardcoded.
-  Fixed the username option not working.
-  Changed the logo it prints.
-  Reformatted a little.
-  Added a rate limiting system to spam (theoretically) forever until they either delete the webhook or u do.
+  Avatar is now changable instead of being hardcoded. <br>
+  Fixed the username option not working. <br>
+  Changed the logo it prints. <br>
+  Reformatted a little. <br>
+  Added a rate limiting system to spam (theoretically) forever until they either delete the webhook or u do. <br>
   </details> <br>
