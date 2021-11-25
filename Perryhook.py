@@ -4,10 +4,6 @@ import requests
 import time
 
 
-def _exit():
-    exit()
-    
-    
 def check_hook(webhook):
     info = requests.get(webhook).text
     if "\"message\": \"Unknown Webhook\"" in info:
@@ -29,7 +25,7 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
                 time.sleep(timeout / 1000)
             if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
-                _exit()
+                exit()
         except:
             print()
         time.sleep(float(delay))
