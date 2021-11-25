@@ -1,3 +1,12 @@
 # Perryhook
 https://github.com/cattyngmd/cutehook <- Original. <br>
-A Python made Discord webhook spammer usually used for token loggers to spam them/delete them original by cattyn I only edited it so u can change the avatar to whatever u want instead of it being hardcoded & fixed the username not changing since discord has changed it to "username" when sending the request & changed the logo it prints out when running it & added a rate limiting system so u can now spam (theoretically) forever until they either delete the webhook or u do other than that all the other stuff by cattyn most based russian I have met open to any requests. <br>
+A Python made Discord webhook spammer usually used for token loggers to spam them/delete them original by cattyn changes listed below.<br>
+
+  <details> <br>
+  <summary>Changelog:</summary> <br>
+  Avatar is now changable instead of being hardcoded.
+  Fixed the username option not working.
+  Changed the logo it prints.
+  Reformatted a little.
+  Added a rate limiting system to spam (theoretically) forever until they either delete the webhook or u do.
+  </details> <br>
