@@ -4,10 +4,6 @@ import requests
 import time
 
 
-def _exit():
-    exit()
-
-
 def check_hook(hook):
     info = requests.get(hook).text
     if "\"message\": \"Unknown Webhook\"" in info:
@@ -56,20 +52,20 @@ def initialize():
     hookDeleter = input("Delete webhook after spam? [Y/N] > ")
     if len(message) > 2000:
         print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 2000 characters allowed in the message!{colorama.Back.RESET}")
-        _exit()
+        exit()
     elif len(username) > 80:
         print (f"{colorama.Back.RED}{colorama.Fore.WHITE}Error! Only 80 characters allowed in the username!{colorama.Back.RESET}")
-        _exit()
+        exit()
     try:
         delay = float(delay)
     except ValueError:
-        _exit()
+        exit()
     if not check_hook(webhook) or (not amount.isdigit() and amount != "inf") or (
             hookDeleter.lower() != "y" and hookDeleter.lower() != "n"):
-        _exit()
+        exit()
     else:
         main(webhook, username, avatar, delay, amount, message, hookDeleter)
-        _exit()
+        exit()
 
 
 if __name__ == '__main__':
