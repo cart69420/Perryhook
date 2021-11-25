@@ -9,4 +9,5 @@ A Python made Discord webhook spammer usually used for token loggers to spam the
   Changed the logo it prints. <br>
   Reformatted a little. <br>
   Added a rate limiting system to spam (theoretically) forever until they either delete the webhook or u do. <br>
+  Added a length checker to the username & message part so that incase u put it over the discord limit it will alert u or else it just wont send at all and u will be wasting ur time. <br>
   </details> <br>
