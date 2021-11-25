@@ -1,7 +1,12 @@
-import requests, colorama, time, os
+import colorama
+import os
+import requests
+import time
+
 
 def _exit():
     exit()
+
 
 def check_hook(hook):
     info = requests.get(hook).text
@@ -9,18 +14,20 @@ def check_hook(hook):
         return False
     return True
 
+
 def main(webhook, username, avatar, delay, amount, message, hookDeleter):
     counter = 0
     while True if amount == "inf" else counter < int(amount):
         try:
-            data = requests.post(webhook, json={"content": str(message), "username": str(username), "avatar_url": str(avatar)})
+            data = requests.post(webhook,
+                                 json={"content": str(message), "username": str(username), "avatar_url": str(avatar)})
             if data.status_code == 204:
                 print(f"{colorama.Back.MAGENTA} {colorama.Fore.WHITE}[+] Sent{colorama.Back.RESET}")
             elif data.status_code == 429:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Fail{colorama.Back.RESET}")
                 timeout = int(str(data.json()['retry_after'])[2:])
-                print(colorama.Back.YELLOW, '~', f'Ratelimited sleep {timeout}s')
-                time.sleep(float(timeout))
+                print(colorama.Back.YELLOW, '~', f'Ratelimited sleeping {timeout * 1000 }s')
+                time.sleep(timeout * 1000)
         except:
             print()
         time.sleep(float(delay))
@@ -29,6 +36,7 @@ def main(webhook, username, avatar, delay, amount, message, hookDeleter):
         requests.delete(webhook)
         print(f'{colorama.Fore.MAGENTA}Webhook deleted.')
     print(f'{colorama.Fore.GREEN}Done...')
+
 
 def initialize():
     print(f"""{colorama.Fore.MAGENTA} 
@@ -51,11 +59,13 @@ def initialize():
         delay = float(delay)
     except ValueError:
         _exit()
-    if not check_hook(webhook) or (not amount.isdigit() and amount != "inf") or (hookDeleter.lower() != "y" and hookDeleter.lower() != "n"):
+    if not check_hook(webhook) or (not amount.isdigit() and amount != "inf") or (
+            hookDeleter.lower() != "y" and hookDeleter.lower() != "n"):
         _exit()
     else:
         main(webhook, username, avatar, delay, amount, message, hookDeleter)
         _exit()
+
 
 if __name__ == '__main__':
     os.system('cls')
