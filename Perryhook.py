@@ -28,8 +28,6 @@ def main(webhook, username, avatar, delay, amount, message, deleter):
             if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
                 print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
                 exit()
-            else:
-                print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed{colorama.Back.RESET}")
         except:
             print()
         time.sleep(float(delay))
