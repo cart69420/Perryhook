@@ -46,7 +46,7 @@ def initialize():
 ██╔═══╝░██╔══╝░░██╔══██╗██╔══██╗░░╚██╔╝░░██╔══██║██║░░██║██║░░██║██╔═██╗░
 ██║░░░░░███████╗██║░░██║██║░░██║░░░██║░░░██║░░██║╚█████╔╝╚█████╔╝██║░╚██╗
 ╚═╝░░░░░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░╚════╝░╚═╝░░╚═╝
-  By cattyn & edited by le perry <3 cattyn.
+  I love Perry & Perryhook huge brain autistic 14 yr.
      """)
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
@@ -77,6 +77,6 @@ def initialize():
 
 if __name__ == '__main__':
     os.system('cls')
-    os.system('title cutehook on top.')
+    os.system('title Perryhook on top.')
     colorama.init()
     initialize()
