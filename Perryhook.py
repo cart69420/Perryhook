@@ -6,10 +6,8 @@ import colorama
 import requests
 
 
-async def check_hook(webhook):
-    if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
-        return False
-    return True
+async def checkHook(webhook):
+    return not "Unknown Webhook".casefold() in requests.get(webhook).text.casefold()
 
 
 async def main(webhook, username, avatar, delay, amount, message, deleter):
@@ -68,7 +66,7 @@ async def initialize():
         delay = float(delay)
     except ValueError:
         exit()
-    if not await check_hook(webhook) or (not amount.isdigit() and amount != "inf") or (
+    if not await checkHook(webhook) or (not amount.isdigit() and amount != "inf") or (
             deleter.lower() != "y" and deleter.lower() != "n"):
         exit()
     else:
