@@ -7,7 +7,7 @@ import requests
 
 
 async def checkHook(webhook):
-    return not "Unknown Webhook".casefold() in requests.get(hook).text.casefold()
+    return not "Unknown Webhook".casefold() in requests.get(webhook).text.casefold()
 
 
 async def main(webhook, username, avatar, delay, amount, message, deleter):
