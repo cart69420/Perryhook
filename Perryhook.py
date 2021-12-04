@@ -6,7 +6,7 @@ import colorama
 import requests
 
 
-async def checkHook(webhook):
+async def checkhook(webhook):
     return not "Unknown Webhook".casefold() in requests.get(webhook).text.casefold()
 
 
@@ -66,7 +66,7 @@ async def initialize():
         delay = float(delay)
     except ValueError:
         exit()
-    if not await checkHook(webhook) or (not amount.isdigit() and amount != "inf") or (
+    if not await checkhook(webhook) or (not amount.isdigit() and amount != "inf") or (
             deleter.lower() != "y" and deleter.lower() != "n"):
         exit()
     else:
