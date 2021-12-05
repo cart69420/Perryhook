@@ -23,6 +23,7 @@ async def main(webhook, username, avatar, delay, amount, message, deleter):
             print(
                 f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Failed Ratelimited Waiting {timeout / 1000}s{colorama.Back.RESET}")
             time.sleep(timeout / 1000)
+            counter -= 1
             # Checks during sending stuff if the webhook was deleted and if it was it alerts u so u know you're not wasting ur time.
         if "\"message\": \"Unknown Webhook\"" in requests.get(webhook).text:
             print(f"{colorama.Back.RED} {colorama.Fore.WHITE}[-] Skids deleted the webhook.{colorama.Back.RESET}")
