@@ -14,3 +14,8 @@ A Python made Discord webhook spammer usually used for token loggers to spam the
   Added a length checker to the username & message part so that incase u put it over the discord limit it will alert u or else it just wont send at all and u will be wasting ur time. <br>
   Made it Asynchronous to be a little faster. <br>
   </details> <br>
+  
+  <details> <br>
+  <summary>Todo:</summary> <br>
+  Add a proxy system to send like 10 messages from different proxies to just absolutely rape skids webhooks but I just started Python like a week ago so I might have to take inspiration from other spammers. <br>
+  </details> <br>
