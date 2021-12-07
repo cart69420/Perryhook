@@ -4,7 +4,7 @@ import time
 
 import colorama
 import requests
-
+import logo
 
 async def checkhook(webhook):
     return not "Unknown Webhook".casefold() in requests.get(webhook).text.casefold()
@@ -37,15 +37,7 @@ async def main(webhook, username, avatar, delay, amount, message, deleter):
 
 
 async def initialize():
-    print(f"""{colorama.Fore.MAGENTA} 
-██████╗░███████╗██████╗░██████╗░██╗░░░██╗██╗░░██╗░█████╗░░█████╗░██╗░░██╗
-██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗░██╔╝██║░░██║██╔══██╗██╔══██╗██║░██╔╝
-██████╔╝█████╗░░██████╔╝██████╔╝░╚████╔╝░███████║██║░░██║██║░░██║█████═╝░
-██╔═══╝░██╔══╝░░██╔══██╗██╔══██╗░░╚██╔╝░░██╔══██║██║░░██║██║░░██║██╔═██╗░
-██║░░░░░███████╗██║░░██║██║░░██║░░░██║░░░██║░░██║╚█████╔╝╚█████╔╝██║░╚██╗
-╚═╝░░░░░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░╚════╝░╚═╝░░╚═╝
-  I love Perryhook.
-     """)
+    logo.__init__()
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
     # Checks the length of the username input and if its over 80 it alerts u because in normal Discord without nitro that wouldn't work and usernames through webhooks can't have nitro, so it limits to 80 characters and simply closes/exits the program.
