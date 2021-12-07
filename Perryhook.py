@@ -38,6 +38,12 @@ async def main(webhook, username, avatar, delay, amount, message, deleter):
 
 async def initialize():
     logo.__init__()
+    choice = input("Choose which > ")
+    if choice == "1":
+        pass
+    else:
+        print("Invalid choice")
+        exit()
     webhook = input("Enter ur webhook > ")
     username = input("Enter a webhook name > ")
     # Checks the length of the username input and if its over 80 it alerts u because in normal Discord without nitro that wouldn't work and usernames through webhooks can't have nitro, so it limits to 80 characters and simply closes/exits the program.
